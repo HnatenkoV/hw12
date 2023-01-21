@@ -1,0 +1,43 @@
+section {
+  max-width: 600px;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+section .car-traffic-light {
+  display: block;
+  margin: 0 auto;
+  background-color: #000;
+  width: 100px;
+  height: 280px;
+  padding: 10px;
+  border-radius: 25px;
+}
+section .car-traffic-light .light-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 10px;
+  background-color: #3f3e3e;
+}
+section .car-traffic-light .light-circle.on-red {
+  background-color: #ff0000;
+  box-shadow: 0 0 25px #ff0000;
+}
+section .car-traffic-light .light-circle.on-yellow {
+  background-color: #fff300;
+  box-shadow: 0 0 25px #fff300;
+}
+section .car-traffic-light .light-circle.on-green {
+  background-color: #4ada00;
+  box-shadow: 0 0 25px #4ada00;
+}
+section .btn {
+  width: 100px;
+  height: 50px;
+  background-color: burlywood;
+  text-transform: uppercase;
+  display: block;
+  margin: 50px auto;
+}
+
+/*# sourceMappingURL=style.css.map */
