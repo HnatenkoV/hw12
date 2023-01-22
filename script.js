@@ -8,9 +8,17 @@ const circles = document.querySelectorAll('.light-circle');
 console.log(circles)
 let activeLight = 0;
 
-const startChangeLight = setInterval((event) => {
-    changeLight();
-}, 5000)
+let startChangeLight;
+function changeLightOn() {
+    startChangeLight = setInterval(changeLight, 5000)
+}
+changeLightOn();
+
+// const test = document.getElementById('test');
+//
+// test.addEventListener('click', () => {
+//     clearInterval(startChangeLight);
+// });
 
 function changeLight() {
     circles[activeLight].className = 'light-circle';
@@ -26,28 +34,29 @@ function changeLight() {
 
 let cntValue = 10;
 let onTimer;
-
 function stopTraffic() {
     cntValue--;
     cnt.innerHTML = cntValue;
     if (cntValue === 0) {
-        setInterval((event) => {
-            changeLight();
-        }, 5000);
+        changeLightOn();
+        cntValue = 10
+        btn.removeAttribute('disabled');
     } else {
-        onTimer = setTimeout(stopTraffic, 1000)
+        onTimer = setTimeout(stopTraffic, 1000);
+        clearInterval(startChangeLight);
+        btn.setAttribute('disabled','disabled');
     }
 }
 
-
-
 function pressBtn() {
     clearInterval(startChangeLight);
+    clearTimeout(onTimer);
 
 
     carTrafficRed.classList.add(carTrafficRed.getAttribute('activeColor'));
     carTrafficYellow.classList.remove(carTrafficYellow.getAttribute('activeColor'));
     carTrafficGreen.classList.remove(carTrafficGreen.getAttribute('activeColor'));
+
 
     stopTraffic();
 }
